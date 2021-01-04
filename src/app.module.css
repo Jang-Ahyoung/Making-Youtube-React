@@ -1,0 +1,21 @@
+.app {
+  max-width: 80rem;
+}
+.content {
+  display: flex;
+}
+
+.detail {
+  /* grow 와 shrink 11로 지정 공간이 충분하다면 늘어날수있도록 */
+  flex: 1 1 70%;
+}
+
+.list {
+  flex: 1 1 30%;
+}
+
+@media screen and (max-width: 48rem) {
+  .content {
+    flex-direction: column;
+  }
+}
