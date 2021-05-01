@@ -22,7 +22,6 @@ const SearchHeader = memo(({ onSearch }) => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <img className={styles.img} src="/images/logo.png" alt="logo" />
-        <h1 className={styles.title}>Youtube</h1>
       </div>
       <input
         ref={inputRef}

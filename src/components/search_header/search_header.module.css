@@ -2,7 +2,7 @@
   display: flex;
   height: 4rem;
   padding: 0.8em 1em;
-  background: black;
+  background: transparent;
   color: white;
 }
 
@@ -12,18 +12,25 @@
   margin-right: 1em;
 }
 
+.img {
+  width: 160px;
+}
 .input {
   flex-basis: 100%;
   font-size: 1.2rem;
   outline: 0;
+  border: 1px solid #dad7d7;
+  padding-left: 10px;
 }
 
 .button {
-  background-color: darkgrey;
+  background-color: #fcfcfc;
   outline: 0;
+  border: 1px solid #dad7d7;
 }
 
 .buttonImg {
   height: 100%;
-  padding: 0.5em 0.2em;
+  background-color: #ffffff;
+  padding: 0.5em 1.2em;
 }
