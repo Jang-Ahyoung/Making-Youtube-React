@@ -6,7 +6,9 @@
 
 > React, Youtube-API를 활용한 유트브 클론  <br /> 
 
-### 🎅 developer ([Ahyoung-Jang](https://github.com/Jang-Ahyoung))
+### 🎅 developer
+
+ - [장아영](https://github.com/Jang-Ahyoung)
 
 ## 🦸‍♂️ Demo 🦸‍♀️
 > - Javascript 라이브러리 - 리액트 환경에서 제작
