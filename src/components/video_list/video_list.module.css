@@ -1,3 +1,23 @@
+.container {
+  display: flex;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 20px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar p {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 12px;
+  user-select: none;
+}
+
 .videos {
   display: flex;
   flex-wrap: wrap;
