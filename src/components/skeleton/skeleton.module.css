@@ -1,0 +1,50 @@
+.skeleton {
+  width: 274px;
+  margin-right: 12px;
+  margin-bottom: 30px;
+  animation: skeleton 1s ease infinite alternate;
+}
+
+.Img {
+  background-color: #313131;
+  width: 274px;
+  height: 153px;
+}
+
+.Info {
+  display: flex;
+  margin-top: 15px;
+}
+
+.Avatar {
+  background-color: #313131;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.Detail {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.Text,
+.Text_sm {
+  background-color: #313131;
+  width: 90%;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.Text_sm {
+  width: 50%;
+}
+
+@keyframes skeleton {
+  to {
+    opacity: 0.5;
+  }
+}
