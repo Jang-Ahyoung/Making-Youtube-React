@@ -45,7 +45,9 @@ function App({ youtube }) {
           .mostPopular()
           .then(videos => setVideos(videos));
       } catch (err) { }
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
     }
     getVideos();
   }, [youtube]); // 컴포넌트 업데이트 될때마다 네트워크 통신하는 것은 좋지않아
