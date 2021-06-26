@@ -4,6 +4,12 @@ import VideoList from './components/video_list/video_list';
 import SearchHeader from './components/search_header/search_header';
 import VideoDetail from './components/video_detail/video_detail';
 import Skeleton from './components/skeleton/skeleton';
+
+import HomeIcon from '@material-ui/icons/Home';
+import ExploreIcon from '@material-ui/icons/Explore';
+import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
+import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
+
 //App 컴포넌트는 function 컴포넌트 이기때문에  관련된 state나 props이 바뀌면 우리가 여기에 정의한 멤버변수가 다시 만들어진다
 // 그말은 여기 콜백함수들이 새롭게 만들어진다는 이야기!
 // 즉 state 바뀔때마다 search는 새로운 함수 가리키게 되고 search는 setSelectedVideo에 전달되기떄문에
@@ -53,25 +59,34 @@ function App({ youtube }) {
   }, [youtube]); // 컴포넌트 업데이트 될때마다 네트워크 통신하는 것은 좋지않아
   // 텅텅빈 배열 2번쨰 인자로 전달시마운트 되었을때만 이부분이 호출돼
   //useState네임 비끨때마다 호출되었음 좋겠어 -> []안에 name만 전달해주면돼
-
+  console.log(videos)
   return (
     <div className={styles.app}>
-      <SearchHeader onSearch={search} />
-
+      <SearchHeader onSearch={search} isLoading={isLoading} />
       <section className={styles.content}>
+        {selectedVideo ? ( // 선택된 비디오가 있다면~ VideoDetail컴포넌트 이용해서 비디오에 전달
+          <div className={styles.detail}>
+            <VideoDetail video={selectedVideo} />
+          </div> // 검색될때마다 목록으로 다시 돌아가야되지만 랜더부분에서 셀렉티드된게 없으면 보이지 않도록 상태에따라 볼수있게 정의되있기때문에 상태만 업데이트해주면돼!! 초간단쓰 ㅎㅎ
+        )
+          :
+          <div className={styles.navbar}>
+            <HomeIcon /> <p>홈</p>
+            <ExploreIcon /> <p>탐색</p>
+            <SubscriptionsIcon /> <p>구독</p>
+            <VideoLibraryIcon /> <p>보관함</p>
+          </div>
+        }
         {isLoading
-          ? <Skeleton type="feed"></Skeleton>
-          : <>
-            {selectedVideo && ( // 선택된 비디오가 있다면~ VideoDetail컴포넌트 이용해서 비디오에 전달
-              <div className={styles.detail}>
-                <VideoDetail video={selectedVideo} />
-              </div> // 검색될때마다 목록으로 다시 돌아가야되지만 랜더부분에서 셀렉티드된게 없으면 보이지 않도록 상태에따라 볼수있게 정의되있기때문에 상태만 업데이트해주면돼!! 초간단쓰 ㅎㅎ
-            )}
-            <div className={styles.list}>
-              <VideoList videos={videos} onVideoClick={selectVideo} display={selectedVideo ? 'list' : 'grid'} />
-              {/* 새로운 prop 만들어서 selectedVideo있으면 list로 보여주고 아니면 1줄에 2개씩 나오도록 해주는것! */}
-            </div>
-          </>
+          ? (
+            <div className={styles.skeleton}>
+              <Skeleton type="feed"></Skeleton>
+            </div>)
+          :
+          <div className={styles.list}>
+            <VideoList videos={videos} onVideoClick={selectVideo} display={selectedVideo ? 'list' : 'grid'} selectedVideo={selectedVideo} />
+            {/* 새로운 prop 만들어서 selectedVideo있으면 list로 보여주고 아니면 1줄에 2개씩 나오도록 해주는것! */}
+          </div>
         }
       </section>
     </div >

@@ -1,6 +1,3 @@
-.app {
-  max-width: 80rem;
-}
 .content {
   display: flex;
 }
@@ -14,8 +11,38 @@
   flex: 1 1 30%;
 }
 
+.skeleton {
+  padding: 30px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  min-height: 800px;
+  align-items: center;
+  cursor: pointer;
+  color: #6e6c6c;
+}
+
+.navbar p {
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 10px;
+  user-select: none;
+}
+
 @media screen and (max-width: 48rem) {
   .content {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .navbar {
+    display: none;
   }
 }
